@@ -5,7 +5,7 @@ You can see an example for consuming the angular responsive carousel in file 'in
 This project relies on Twitter Bootstrap 3 and Jquery.
 
 How to consume:
-<ul rn-carousel-responsive carousel-items="items"></ul>
+&lt;ul rn-carousel-responsive carousel-items="items"&gt;&lt;/ul&gt;
 
 
 Limitations of initial version: 
