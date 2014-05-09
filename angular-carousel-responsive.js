@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('angular-carousel-responsive', [
     'ngTouch', 'angular-carousel'
 ])
@@ -11,8 +13,7 @@ angular.module('angular-carousel-responsive', [
     link: function(scope, element, attrs) {
       var width, height;
       scope.resolutionType = -1;
-      scope.carouselIndex = -1;
-
+      
       scope.carouselItemsGrouped = [];
 
       function getWindowResolution(){
@@ -41,8 +42,9 @@ angular.module('angular-carousel-responsive', [
 
       function generateGroupedArray(){
           scope.carouselItemsGrouped = [];
+          //scope.slideIndex = 2;
 
-          if (scope.resolutionType < 0 || jQuery.type(scope.carouselItems) != "array" || scope.carouselItems.length == 0){
+          if (scope.resolutionType < 0 || jQuery.type(scope.carouselItems) != 'array' || scope.carouselItems.length === 0){
             console.log('nothing to generate.');
             return;
           }
@@ -58,7 +60,7 @@ angular.module('angular-carousel-responsive', [
           var slideGroupIndex = 0;
 
           for (var i=0; i<scope.carouselItems.length; i++){
-            if (slideGroupIndex == 0) {
+            if (slideGroupIndex === 0) {
               //create a new group in grouped array
               scope.carouselItemsGrouped.push([]);
             }
@@ -85,7 +87,7 @@ angular.module('angular-carousel-responsive', [
 
           getWindowResolution();
 
-          resolutionTypeNew =
+          var resolutionTypeNew =
             getResolutionType();
 
           if (resolutionTypeNew != scope.resolutionType)
@@ -95,7 +97,7 @@ angular.module('angular-carousel-responsive', [
             scope.resolutionType = resolutionTypeNew;
             generateGroupedArray();
           }
-      };
+      }
 
       process();
 
